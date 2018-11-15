@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Selekta - Artist Portal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<script src="https://use.fontawesome.com/939e9dd52c.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" media="screen and (max-width: 400px)" href="css/style_mobile.css">
+	<link rel="stylesheet" media="screen and (min-width: 401px) and (max-width: 800px)" href="css/style_ipad.css">
+	<link rel="stylesheet" media="screen and (min-width: 801px)" href="css/style_full.css">
+</head>
+<body>
+	<div>
+		<img class="logo" src="assets/logo.png" width="50" height="50">
+	</div>
+	<div class="mainDiv">
+		<h1 align="left">Request Access to the Artist Portal</h1>
+		<p>In the studio, quality is key. At Selekta we aim to showcase artists and labels who embody core culture behind DJing. Does this sound like you? Drop us a line.</p>
+		<form action="request.php" method="post">
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+		<br>
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+		<br>
+		<label for="lname">Email</label>
+    <input type="text" id="email" name="email" placeholder="Your email..">
+		<br>
+    <input type="submit" value="Submit">
+
+  </form>
+</div>
+	</div>
+	<div class="fullscreen-bg">
+		<video loop muted autoplay poster="assets/videoframe.png" class="fullscreen-bg__video">
+				<source src="assets/selekta_web.mp4" type="video/mp4">
+		</video>
+
+	</div>
+
+
+</body>
+</html>

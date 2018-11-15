@@ -1,0 +1,110 @@
+body {
+	overflow-y: scroll;
+	background: #21252b;
+	color: #333;
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	padding: 0;
+	maring: 0;
+}
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+
+}
+
+* {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	font-size: 16px;
+	outline: none;
+}
+
+input, button {
+	border: 0;
+	padding: 10px;
+}
+
+.logo{
+	float: left;
+	z-index: +1;
+}
+
+.crateRecord{
+	border-color: #696969;
+	border-width: .5px;
+}
+
+.mainDiv {
+	float: left;
+	right: -5%; /* or right 50% */
+	position: relative;
+	background: #fff;
+	padding: 20px;
+	width: 70%;
+	max-width: 450px;
+	margin: 0px auto;
+	box-shadow: 0 0 20px #333;
+}
+
+h1 {
+	font-weight: 300;
+	font-size: 24px;
+	padding: 5px;
+}
+
+textarea {
+	background: #fff;
+	padding-top: 10px;
+	padding-left: 5px;
+	outline: none;
+	width: 100%;
+	resize: none;
+}
+
+button {
+	background: #528bff;
+	color: #fff;
+	position: relative;
+	top: 50px;
+	width: 64px;
+	height: 64px;
+	line-height: 38px;
+	border-radius: 100%;
+}
+
+.addbutton {
+	float: left;
+	padding-left: 3px;
+}
+
+.bypass {
+	float: right;
+	z-index: +1;
+}
+@media (max-width:800px) {
+	.fullscreen-bg__video {
+      display:none;
+}
+.fullscreen-bg{
+	background:url(../assets/videoframe.png) no-repeat top center;
+	background-size:cover;
+}
+}
+
+.authboxes{
+	min-height: 100%;
+}

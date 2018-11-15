@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Selekta - Artist Portal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<script src="https://use.fontawesome.com/939e9dd52c.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" media="screen and (max-width: 400px)" href="css/style_mobile.css">
+	<link rel="stylesheet" media="screen and (min-width: 401px) and (max-width: 800px)" href="css/style_ipad.css">
+	<link rel="stylesheet" media="screen and (min-width: 801px)" href="css/style_full.css">
+
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="66ea95ed-804a-4834-9950-7c15912a9882";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+</head>
+<body>
+	<div>
+		<img class="logo" src="assets/logo.png" width="50" height="50">
+	</div>
+	<div class="fullscreen-bg">
+		<video loop muted autoplay poster="assets/videoframe.png" class="fullscreen-bg__video">
+				<source src="assets/selekta_web.mp4" type="video/mp4">
+		</video>
+
+	</div>
+	<div class="mainDiv">
+		<form name="myForm" id="myForm" onsubmit="return validateForm()">
+			<h1 align="left">Add a Record From Your Crate</h1>
+			<div class="crateRecord">
+				<textarea id="mainText" placeholder="Artist Name"></textarea>
+				<textarea id="mainText" placeholder="Track Name"></textarea>
+				<textarea id="mainText" placeholder="URL (YouTube)"></textarea>
+				Sleeve:<input id="mainText" type="file" name="datafile" size="40">
+			</div>
+		</form>
+		<div class="addbutton"><input type="button" id="addPet" value="Add Record" /></div>
+			<button id="submitBtn" onclick="submitClick()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+	</div>
+
+
+
+	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDka9rV4fCZhgkdQpq1l7cnH5va1FYcS4Y",
+	    authDomain: "selekta.firebaseapp.com",
+	    databaseURL: "https://selekta.firebaseio.com",
+	    projectId: "firebase-selekta",
+	    storageBucket: "firebase-selekta.appspot.com",
+	    messagingSenderId: "787417907172"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+	<script src="index.js"></script>
+
+<! Check Auth  >
+	<script type="text/javascript">
+       initApp = function() {
+         firebase.auth().onAuthStateChanged(function(user) {
+           if (user) {
+             // User is signed in.
+             var displayName = user.displayName;
+             var email = user.email;
+             var emailVerified = user.emailVerified;
+             var photoURL = user.photoURL;
+             var uid = user.uid;
+             var phoneNumber = user.phoneNumber;
+             var providerData = user.providerData;
+             user.getToken().then(function(accessToken) {
+               document.getElementById('sign-in-status').textContent = 'Signed in';
+               document.getElementById('sign-in').textContent = 'Sign out';
+               document.getElementById('account-details').textContent = JSON.stringify({
+                 displayName: displayName,
+                 email: email,
+                 emailVerified: emailVerified,
+                 phoneNumber: phoneNumber,
+                 photoURL: photoURL,
+                 uid: uid,
+                 accessToken: accessToken,
+                 providerData: providerData
+               }, null, '  ');
+             });
+           } else {
+             // User is signed out.
+             document.getElementById('sign-in-status').textContent = 'Signed out';
+             document.getElementById('sign-in').textContent = 'Sign in';
+             document.getElementById('account-details').textContent = 'null';
+           }
+         }, function(error) {
+           console.log(error);
+         });
+       };
+
+       window.addEventListener('load', function() {
+         initApp()
+       });
+     </script>
+
+</body>
+</html>
